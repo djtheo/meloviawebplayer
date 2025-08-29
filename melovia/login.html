@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Melovia</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .login-form {
+        max-width: 400px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .login-form input {
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid var(--input-border);
+        border-radius: 4px;
+        width: 100%;
+        background-color: var(--input-bg);
+        color: var(--text-primary);
+      }
+      .login-form button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 4px;
+        background-color: var(--accent);
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+      }
+      .login-form button:hover {
+        background-color: var(--accent-hover);
+      }
+      .login-form .message {
+        color: #e74c3c;
+        font-size: 0.9rem;
+      }
+
+      .switch-form {
+        font-size: 0.9rem;
+        text-align: center;
+      }
+      .switch-form a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .switch-form a:hover {
+        text-decoration: underline;
+      }
+    </style>
+    <!-- Firebase compat libraries. These load from Google's CDN. -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+    <!-- Your custom Firebase configuration -->
+    <script src="firebase.js"></script>
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="site-header">
+        <div class="logo-container">
+          <img src="logo.png" alt="Melovia Logo" class="logo-image" />
+          <span class="site-title">Melovia</span>
+        </div>
+      </header>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="playlists.html">Playlists</a>
+        <!-- Liked page has been removed -->
+        <a href="profile.html">Profile</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html" class="active-link">Login</a>
+        <input type="text" id="search-input" class="search-input" placeholder="Search songs..." />
+        <input type="color" id="accent-color-picker" value="#1db954" title="Choose accent colour" />
+      </nav>
+      <main style="padding: 40px;">
+        <h2 id="auth-heading">Sign In</h2>
+        <!-- Login form -->
+        <form id="login-form" class="login-form">
+          <input type="email" id="login-email" placeholder="Email" required />
+          <input type="password" id="login-password" placeholder="Password" required />
+          <button type="submit">Sign In</button>
+          <div class="message" id="login-message"></div>
+          <p class="switch-form">Don't have an account? <a href="#" id="show-register">Register</a></p>
+        </form>
+        <!-- Registration form (hidden by default) -->
+        <form id="register-form" class="login-form" style="display: none;">
+          <input type="email" id="register-email" placeholder="Email" required />
+          <input type="password" id="register-password" placeholder="Password" required />
+          <input type="password" id="register-confirm" placeholder="Confirm Password" required />
+          <button type="submit">Create Account</button>
+          <div class="message" id="register-message"></div>
+          <p class="switch-form">Already have an account? <a href="#" id="show-login">Sign in</a></p>
+        </form>
+      </main>
+    </div>
+    <script src="login.js"></script>
+    <script src="theme.js"></script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile - Melovia</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="site-header">
+        <div class="logo-container">
+          <img src="logo.png" alt="Melovia Logo" class="logo-image" />
+          <span class="site-title">Melovia</span>
+        </div>
+      </header>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="playlists.html">Playlists</a>
+        <a href="profile.html" class="active-link">Profile</a>
+        <a href="contact.html">Contact</a>
+        <!-- Logout link for signing out -->
+        <a href="#" id="logout-link">Logout</a>
+        <input type="text" id="search-input" class="search-input" placeholder="Search songs..." />
+        <input type="color" id="accent-color-picker" value="#1db954" title="Choose accent colour" />
+      </nav>
+      <main class="profile-main">
+        <div class="profile-container">
+          <div class="profile-heading">
+            <h2>Your Profile</h2>
+            <p>
+              This page will display your user details. When connected to Firebase,
+              profile information such as display name, email address and profile
+              picture can be fetched and shown here.
+            </p>
+          </div>
+          <div class="profile-info" id="profile-info">
+            <p><strong>Name:</strong> <span id="profile-name">Guest</span></p>
+            <p><strong>Email:</strong> <span id="profile-email">Not logged in</span></p>
+          </div>
+          <!-- Profile picture upload -->
+          <div class="profile-avatar">
+            <img id="profile-pic" src="assets/artist_avatar.png" alt="Profile Picture" />
+            <label for="profile-pic-input" class="profile-upload-btn">
+              Upload Picture
+            </label>
+            <input id="profile-pic-input" type="file" accept="image/*" />
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="auth.js"></script>
+    <script src="profile.js"></script>
+    <script src="theme.js"></script>
+  </body>
+</html>
